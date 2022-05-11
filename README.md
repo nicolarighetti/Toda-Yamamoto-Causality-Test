@@ -4,7 +4,7 @@ R function to perform the Toda-Yamamoto causality test ([Toda & Yamamoto, 1995](
 
 The code is just a very slightly modified version of the code kindly shared by [jlukito](https://github.com/jlukito) in the [ira_3media](https://github.com/jlukito/ira_3media/blob/master/final_analysis.md) public repository for replicating results from her paper *Coordinating a Multi-Platform Disinformation Campaign: Internet Research Agency activity on three U.S. social media platforms, 2015 to 2017* (Lukito, 2020). 
 
-Compared to the original version, it simply adds an authomated way to detect the maximum order of integration d<sub>max</sub> that has to be added to the lag length *k* of the original VAR model to estimate the (k + d<sub>max</sub>)th-order VAR required by the Toda & Yamamoto procedure (Toda & Yamamoto, 1995). As the change is minumal, if you use/reuse the code, you can just cite the [jlukito] work or her GitHub repository.
+Compared to the original version, it simply adds an authomated way to detect the maximum order of integration d<sub>max</sub> that has to be added to the lag length *k* of the original VAR model to estimate the (k + d<sub>max</sub>)th-order VAR required by the Toda & Yamamoto procedure (Toda & Yamamoto, 1995). This makes the code reusable with time series with any orders of integration, also different from that of the original Lukito's series. As the change is minumal, if you use/reuse the code, you can just cite the [jlukito](https://github.com/jlukito) work (Lukito, 2020) or her [GitHub repository](https://github.com/jlukito/ira_3media/blob/master/final_analysis.md).
 
 **References**
 
