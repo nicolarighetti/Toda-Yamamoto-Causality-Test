@@ -38,18 +38,15 @@ Adapting the above equation to the Toda-Yamamoto procedure, the coefficients of 
 https://christophpfeiffer.org/2012/11/07/toda-yamamoto-implementation-in-r/#:~:text=Data-,coffee_data.csv,-Other%2C%20Predictions
 
 cof <- read.csv("coffee_data.csv")[193:615,]
-
-# 6 lags are fine
 V.6 <- VAR(cof1[,2:3], p=6, type="both")
-
 # add one lag ($d_{max}=1$) for the toda yamamoto procedure
 V.7<- VAR(cof1[,2:3], p=7, type="both")
 
 # run the Wald Test ignoring the ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D) lag
 wald.test(b=coef(V.7$varresult[[1]]), Sigma=vcov(V.7$varresult[[1]]), Terms=c(2,4,6,8,10,12))
-
 wald.test(b=coef(V.7$varresult[[2]]), Sigma=vcov(V.7$varresult[[2]]), Terms= c(1,3,5,7,9,11))
 
+# -------------------------------------
 # Using the toda.yamamoto function ####
 toda.yamamoto.test(V.6)
 ```
