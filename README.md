@@ -31,7 +31,7 @@ The Toda-Yamamoto causality test is applied to the multivariate case following t
 
 >if we test for simple Granger causal relations, with ![equation](https://latex.codecogs.com/svg.image?%5Cbeta_j%5Ek,%20k=1,%20...,%20k_%7Bj&plus;2%7D,%20j=1,%20...,%20m), being the coefficients of the additional variables. It does not matter whether the additional variables are endogenous or exogenous since only lagged values are considered. After determining the numbers of lags ![equation](https://latex.codecogs.com/svg.image?k_1,%20k_2,%20k_3), ..., (3.23) can be estimated using OLS. As in the bivariate case, it can be checked via an F test whether the coefficients of the lagged values of x are jointly significantly different from zero. By interchanging x and y in (3.23), it can be tested whether there exists a simple Granger causal relation from y to x and/or feedback.
 
-Adapting the above equation to the Toda-Yamamoto procedure, the coefficients of the lagged values of X are tested excluding the additional lags ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D) and using the Wald Chi-Squared Test instead of the F test.
+Accordingly to the above equation, when there are ![equation](https://latex.codecogs.com/svg.image?z_m%20) additional time series, the test is performed by controlling for the effect of the ![equation](https://latex.codecogs.com/svg.image?z_m%20) series. Moreover, using the Toda-Yamamoto procedure, the coefficients of the lagged values of X are tested excluding the additional lags ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D) and using the Wald Chi-Squared Test instead of the F test.
 
 ```{r}
 # Example from the Christoph Pfeiffer's blog
