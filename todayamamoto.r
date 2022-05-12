@@ -31,7 +31,7 @@ toda.yamamoto <- function(var.model, test = c("kpss","adf","pp")) {
     for (j in 1:length(ty.varnames)) {
       if (k != j){
 
-        # coefficient to test, ignoring the d_max lags
+        # coefficients to test, ignoring the d_max lags
         ty.coefres <- head(grep(ty.varnames[j], 
                                 setdiff(colnames(ty.augmented_var$datamat), 
                                         colnames(ty.augmented_var$y))))
