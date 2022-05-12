@@ -21,10 +21,10 @@ toda.yamamoto <- function(var.model, test = c("kpss","adf","pp")) {
   ty.lags <- var.model$p + d.max
   ty.augmented_var <- vars::VAR(ty.df, ty.lags, type=var.model$type)
 
-  ty.results <- data.frame(non_granger_cause = character(0), 
-                           granger_effect = character(0), 
+  ty.results <- data.frame(cause = character(0), 
+                           effect = character(0), 
                            chisq = numeric(0), 
-                           p = numeric(0))
+                           pvalue = numeric(0))
   
 
     for (k in 1:length(ty.varnames)) {
@@ -41,10 +41,10 @@ toda.yamamoto <- function(var.model, test = c("kpss","adf","pp")) {
                               Terms = ty.coefres) 
         
         ty.results <- rbind(ty.results, data.frame(
-          non_granger_cause = ty.varnames[j], 
-          granger_effect = ty.varnames[k], 
+          cause = ty.varnames[j], 
+          effect = ty.varnames[k], 
           chisq = as.numeric(wald.res$result$chi2[1]),
-          p = wald.res$result$chi2[3])
+          pvalue = wald.res$result$chi2[3])
           )
       }
     }

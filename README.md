@@ -38,9 +38,9 @@ Accordingly to the above equation, when there are ![equation](https://latex.code
 https://christophpfeiffer.org/2012/11/07/toda-yamamoto-implementation-in-r/#:~:text=Data-,coffee_data.csv,-Other%2C%20Predictions
 
 cof <- read.csv("coffee_data.csv")[193:615,]
-V.6 <- VAR(cof1[,2:3], p=6, type="both")
+V.6 <- VAR(cof[,2:3], p=6, type="both")
 # add one lag ($d_{max}=1$) for the toda yamamoto procedure
-V.7<- VAR(cof1[,2:3], p=7, type="both")
+V.7<- VAR(cof[,2:3], p=7, type="both")
 
 # run the Wald Test ignoring the ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D) lag
 wald.test(b=coef(V.7$varresult[[1]]), Sigma=vcov(V.7$varresult[[1]]), Terms=c(2,4,6,8,10,12))
@@ -48,7 +48,7 @@ wald.test(b=coef(V.7$varresult[[2]]), Sigma=vcov(V.7$varresult[[2]]), Terms= c(1
 
 # -------------------------------------
 # Using the toda.yamamoto function ####
-toda.yamamoto.test(V.6)
+toda.yamamoto(V.6)
 ```
 
 For any comments or observation, you can [drop me a message](mailto:nicola.righetti@univie.ac.at?subject=[GitHub]%20Toda-Yamamoto%20)
