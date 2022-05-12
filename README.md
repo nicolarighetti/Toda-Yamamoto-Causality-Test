@@ -51,7 +51,7 @@ wald.test(b=coef(V.7$varresult[[2]]), Sigma=vcov(V.7$varresult[[2]]), Terms= c(1
 toda.yamamoto.test(V.6)
 ```
 
-For any comments or observation, you can [drop me a message](mailto:nicola.righetti@univie.ac.at?subject=[GitHub]%20Source%20Han%20Sans)
+For any comments or observation, you can [drop me a message](mailto:nicola.righetti@univie.ac.at?subject=[GitHub]%20Toda-Yamamoto%20Git-Hub%20)
 
 **References**
 
