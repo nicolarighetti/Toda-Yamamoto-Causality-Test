@@ -8,7 +8,7 @@ In particular, this method:
 
 >is applicable whether the VAR’s may be stationary (around a deterministic trend), integrated of an arbitrary order, or cointegrated of an arbitrary order. Consequently, one can test linear or nonlinear restrictions on the coefficients by estimating a levels VAR and applying the Wald criterion, paying little attention to the integration and cointegration properties of the time series data in hand. (Toda & Yamamoto, 1995, pp. 245-246).
 
->(...) we can estimate levels VAR’s and test general restrictions on the parameter matrices even if the processes may be integrated or cointegrated of an arbitrary order; we can apply the usual lag selection procedure (...) to a possibly integrated or cointegrated VAR (as far as the order of integration of the process does not exceed the true lag length of the model). Having chosen a lag length k, we then estimate a (k + d_{max})th-order VAR where d_{max} is the maximal order of integration that we suspect might occur in the process. The coefficient matrices of the last d_{max} lagged vectors in the model are ignored (since these are regarded as zeros), and we can test linear or nonlinear restrictions on the first k coefficient matrices using the standard asymptotic theory. (Toda & Yamamoto, 1995, p. 227).
+>(...) we can estimate levels VAR’s and test general restrictions on the parameter matrices even if the processes may be integrated or cointegrated of an arbitrary order; we can apply the usual lag selection procedure (...) to a possibly integrated or cointegrated VAR (as far as the order of integration of the process does not exceed the true lag length of the model). Having chosen a lag length k, we then estimate a (k + ![equation](https://latex.codecogs.com/svg.image?%5Clarge%20d_%7Bmax%7D))th-order VAR where ![equation](https://latex.codecogs.com/svg.image?%5Clarge%20d_%7Bmax%7D) is the maximal order of integration that we suspect might occur in the process. The coefficient matrices of the last ![equation](https://latex.codecogs.com/svg.image?%5Clarge%20d_%7Bmax%7D) lagged vectors in the model are ignored (since these are regarded as zeros), and we can test linear or nonlinear restrictions on the first k coefficient matrices using the standard asymptotic theory. (Toda & Yamamoto, 1995, p. 227).
 
 An R code to run a bivariate version of the test was published by [Christoph Pfeiffer](https://christophpfeiffer.org/) on his [website](https://christophpfeiffer.org/2012/11/07/toda-yamamoto-implementation-in-r/#:~:text=Data-,coffee_data.csv,-Other%2C%20Predictions) and the procedure is clearly explained on his website as well as by prof. [Dave Giles](https://davegiles.blogspot.com) on his blog [Econometrics Beat](https://davegiles.blogspot.com/2011/04/testing-for-granger-causality.html):
 
@@ -49,13 +49,11 @@ The Toda-Yamamoto procedure is applied to multivariate cases following the equat
 
 >Let z_1, ..., z_m be additional variables. According to the definition of Granger causality, the estimation equation (3.21) 
 
-$$(3.21) \space y_t = \alpha_0 + \sum_{k=1}^{k_1} \alpha_{11}^k y_{t-k} + \sum_{k=1}^{k_2} \alpha_{12}^k x_{t-k} + u_t$$
+![equation](https://latex.codecogs.com/svg.image?%5Clarge%20(3.21)%20%5Cspace%20y_t%20=%20%5Calpha_0%20&plus;%20%5Csum_%7Bk=1%7D%5E%7Bk_1%7D%20%5Calpha_%7B11%7D%5Ek%20y_%7Bt-k%7D%20&plus;%20%5Csum_%7Bk=1%7D%5E%7Bk_2%7D%20%5Calpha_%7B12%7D%5Ek%20x_%7Bt-k%7D%20&plus;%20u_t)
 
 >can be extended to
 
 ![equation](https://latex.codecogs.com/svg.image?%5Clarge%20(3.23)%20%5Cspace%20%20y_t%20=%20%5Calpha_0%20&plus;%20%5Csum_%7Bk=1%7D%5E%7Bk_1%7D%20%5Calpha_%7B11%7D%5Ek%20y_%7Bt-k%7D%20&plus;%20%5Csum_%7Bk=1%7D%5E%7Bk_2%7D%20%5Calpha_%7B12%7D%5Ek%20x_%7Bt-k%7D%20&plus;%20%5Csum_%7Bj=1%7D%5E%7Bm%7D%20%5Csum_%7Bk=1%7D%5E%7Bk_%7Bj&plus;2%7D%7D%20%5Cbeta_j%5Ek%20z_%7Bj,t-k%7D%20&plus;%20u_t,)
-
-$$(3.23) \space y_t = \alpha_0 + \sum_{k=1}^{k_1} \alpha_{11}^k y_{t-k} + \sum_{k=1}^{k_2} \alpha_{12}^k x_{t-k} + \sum_{j=1}^{m} \sum_{k=1}^{k_{j+2}} \beta_j^k z_{j,t-k} + u_t,$$
 
 >if we test for simple Granger causal relations, with $\beta_j^k$, k = 1, ..., $k_{j+2}$, j = 1, ..., m, being the coefficients of the additional variables. It does not matter whether the additional variables are endogenous or exogenous since only lagged values are considered. After determining the numbers of lags $k_1$, $k_2$, $k_3$, ..., (3.23) can be estimated using OLS. As in the bivariate case, it can be checked via an F test whether the coefficients of the lagged values of x are jointly significantly different from zero. By interchanging x and y in (3.23), it can be tested whether there exists a simple Granger causal relation from y to x and/or feedback.
 
