@@ -51,12 +51,13 @@ wald.test(b=coef(V.7$varresult[[2]]), Sigma=vcov(V.7$varresult[[2]]), Terms= c(1
 toda.yamamoto.test(V.6)
 ```
 
+For any comments or observation, you can [drop me a message](nicola.righetti@univie.ac.at), thanks.
 
 **References**
 
 Granger, C. W. (1969). Investigating causal relations by econometric models and cross-spectral methods. *Econometrica: journal of the Econometric Society*, 424-438.
 
-He, Z., & Maekawa, K. (2001). On spurious Granger causality. Economics Letters, 73(3), 307-313.
+He, Z., & Maekawa, K. (2001). On spurious Granger causality. *Economics Letters*, 73(3), 307-313.
 
 Lukito, J. (2020). Coordinating a multi-platform disinformation campaign: Internet Research Agency activity on three US social media platforms, 2015 to 2017. *Political Communication*, 37(2), 238-255.
 
