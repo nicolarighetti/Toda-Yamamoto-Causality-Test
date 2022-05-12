@@ -53,6 +53,8 @@ $$(3.21) \space y_t = \alpha_0 + \sum_{k=1}^{k_1} \alpha_{11}^k y_{t-k} + \sum_{
 
 >can be extended to
 
+![equation](https://latex.codecogs.com/svg.image?%5Clarge%20(3.23)%20%5Cspace%20%20y_t%20=%20%5Calpha_0%20&plus;%20%5Csum_%7Bk=1%7D%5E%7Bk_1%7D%20%5Calpha_%7B11%7D%5Ek%20y_%7Bt-k%7D%20&plus;%20%5Csum_%7Bk=1%7D%5E%7Bk_2%7D%20%5Calpha_%7B12%7D%5Ek%20x_%7Bt-k%7D%20&plus;%20%5Csum_%7Bj=1%7D%5E%7Bm%7D%20%5Csum_%7Bk=1%7D%5E%7Bk_%7Bj&plus;2%7D%7D%20%5Cbeta_j%5Ek%20z_%7Bj,t-k%7D%20&plus;%20u_t,)
+
 $$(3.23) \space y_t = \alpha_0 + \sum_{k=1}^{k_1} \alpha_{11}^k y_{t-k} + \sum_{k=1}^{k_2} \alpha_{12}^k x_{t-k} + \sum_{j=1}^{m} \sum_{k=1}^{k_{j+2}} \beta_j^k z_{j,t-k} + u_t,$$
 
 >if we test for simple Granger causal relations, with $\beta_j^k$, k = 1, ..., $k_{j+2}$, j = 1, ..., m, being the coefficients of the additional variables. It does not matter whether the additional variables are endogenous or exogenous since only lagged values are considered. After determining the numbers of lags $k_1$, $k_2$, $k_3$, ..., (3.23) can be estimated using OLS. As in the bivariate case, it can be checked via an F test whether the coefficients of the lagged values of x are jointly significantly different from zero. By interchanging x and y in (3.23), it can be tested whether there exists a simple Granger causal relation from y to x and/or feedback.
