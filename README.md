@@ -8,7 +8,7 @@ In particular, this method:
 
 >is applicable whether the VAR’s may be stationary (around a deterministic trend), integrated of an arbitrary order, or cointegrated of an arbitrary order. Consequently, one can test linear or nonlinear restrictions on the coefficients by estimating a levels VAR and applying the Wald criterion, paying little attention to the integration and cointegration properties of the time series data in hand. (Toda & Yamamoto, 1995, pp. 245-246).
 
->(...) we can estimate levels VAR’s and test general restrictions on the parameter matrices even if the processes may be integrated or cointegrated of an arbitrary order; we can apply the usual lag selection procedure (...) to a possibly integrated or cointegrated VAR (as far as the order of integration of the process does not exceed the true lag length of the model). Having chosen a lag length k, we then estimate a (k + ![equation](https://latex.codecogs.com/svg.image?%5Clarge%20d_%7Bmax%7D))th-order VAR where ![equation](https://latex.codecogs.com/svg.image?%5Clarge%20d_%7Bmax%7D) is the maximal order of integration that we suspect might occur in the process. The coefficient matrices of the last ![equation](https://latex.codecogs.com/svg.image?%5Clarge%20d_%7Bmax%7D) lagged vectors in the model are ignored (since these are regarded as zeros), and we can test linear or nonlinear restrictions on the first k coefficient matrices using the standard asymptotic theory. (Toda & Yamamoto, 1995, p. 227).
+>(...) we can estimate levels VAR’s and test general restrictions on the parameter matrices even if the processes may be integrated or cointegrated of an arbitrary order; we can apply the usual lag selection procedure (...) to a possibly integrated or cointegrated VAR (as far as the order of integration of the process does not exceed the true lag length of the model). Having chosen a lag length k, we then estimate a (k + ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D))th-order VAR where ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D) is the maximal order of integration that we suspect might occur in the process. The coefficient matrices of the last ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D) lagged vectors in the model are ignored (since these are regarded as zeros), and we can test linear or nonlinear restrictions on the first k coefficient matrices using the standard asymptotic theory. (Toda & Yamamoto, 1995, p. 227).
 
 An R code to run a bivariate version of the test was published by [Christoph Pfeiffer](https://christophpfeiffer.org/) on his [website](https://christophpfeiffer.org/2012/11/07/toda-yamamoto-implementation-in-r/#:~:text=Data-,coffee_data.csv,-Other%2C%20Predictions) and the procedure is clearly explained on his website as well as by prof. [Dave Giles](https://davegiles.blogspot.com) on his blog [Econometrics Beat](https://davegiles.blogspot.com/2011/04/testing-for-granger-causality.html):
 
@@ -41,9 +41,9 @@ More recently, [Josephine Lukito](https://github.com/jlukito) shared an R functi
 
 The code I am posting here is a blended and modified version of the code by Pfeiffer. In particular, the functions and procedures are those basically described by Pfeiffer, but extended to the multivariate case. However, it is inspired by the Lukito's idea of creating a loop to apply the test to a multivariate case. 
 
-The function also includes an authomated way to detect the maximum order of integration $d_{max}$ that must be added to the lag length *k* of the original VAR model to estimate the ($k + d_{max}$)th-order VAR required by the Toda & Yamamoto procedure (Toda & Yamamoto, 1995). This makes the code usable with time series with any orders of integration. The order of integration is tested by using the function [ndiffs](https://search.r-project.org/CRAN/refmans/forecast/html/ndiffs.html) from the Rob J. Hyndman's [forecast](https://cran.r-project.org/web/packages/forecast/index.html) package. THe function *uses a unit root test to determine the number of differences required for time series x to be made stationary*. The default test is KPSS, but it can also be used the Augmented Dickey-Fuller test (test="adf") or the Phillips-Perron test (test="pp"). 
+The function also includes an authomated way to detect the maximum order of integration ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D) that must be added to the lag length *k* of the original VAR model to estimate the ($k + d_{max}$)th-order VAR required by the Toda & Yamamoto procedure (Toda & Yamamoto, 1995). This makes the code usable with time series with any orders of integration. The order of integration is tested by using the function [ndiffs](https://search.r-project.org/CRAN/refmans/forecast/html/ndiffs.html) from the Rob J. Hyndman's [forecast](https://cran.r-project.org/web/packages/forecast/index.html) package. THe function *uses a unit root test to determine the number of differences required for time series x to be made stationary*. The default test is KPSS, but it can also be used the Augmented Dickey-Fuller test (test="adf") or the Phillips-Perron test (test="pp"). 
 
-Besides *forecast*, the function requires the library *vars*, to fit a VAR model augmented of $d_{max}$ lags, and the *aod* library to perform the Wald Test ignoring the $d_{max}$ lags.
+Besides *forecast*, the function requires the library *vars*, to fit a VAR model augmented of ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D) lags, and the *aod* library to perform the Wald Test ignoring the ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D) lags.
 
 The Toda-Yamamoto procedure is applied to multivariate cases following the equation for the direct Granger procedure with more than two variables, as reported in Kirchgässner & Wolters (2007, p. 114):
 
@@ -57,7 +57,7 @@ The Toda-Yamamoto procedure is applied to multivariate cases following the equat
 
 >if we test for simple Granger causal relations, with $\beta_j^k$, k = 1, ..., $k_{j+2}$, j = 1, ..., m, being the coefficients of the additional variables. It does not matter whether the additional variables are endogenous or exogenous since only lagged values are considered. After determining the numbers of lags $k_1$, $k_2$, $k_3$, ..., (3.23) can be estimated using OLS. As in the bivariate case, it can be checked via an F test whether the coefficients of the lagged values of x are jointly significantly different from zero. By interchanging x and y in (3.23), it can be tested whether there exists a simple Granger causal relation from y to x and/or feedback.
 
-Adapting the above equation to the Toda-Yamamoto procedure, the coefficients of the lagged values of $X$ are tested excluding the additional lags $d_{max}$ and using the Wald Chi-Squared Test instead of the F test.
+Adapting the above equation to the Toda-Yamamoto procedure, the coefficients of the lagged values of $X$ are tested excluding the additional lags ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D) and using the Wald Chi-Squared Test instead of the F test.
 
 ```{r}
 # Example from the Christoph Pfeiffer's blog
@@ -71,7 +71,7 @@ V.6 <- VAR(cof1[,2:3], p=6, type="both")
 # add one lag ($d_{max}=1$) for the toda yamamoto procedure
 V.7<- VAR(cof1[,2:3], p=7, type="both")
 
-# run the Wald Test ignoring the $d_{max}$ lag
+# run the Wald Test ignoring the ![equation](https://latex.codecogs.com/svg.image?d_%7Bmax%7D) lag
 wald.test(b=coef(V.7$varresult[[1]]), Sigma=vcov(V.7$varresult[[1]]), Terms=c(2,4,6,8,10,12))
 
 wald.test(b=coef(V.7$varresult[[2]]), Sigma=vcov(V.7$varresult[[2]]), Terms= c(1,3,5,7,9,11))
