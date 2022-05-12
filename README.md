@@ -77,10 +77,6 @@ wald.test(b=coef(V.7$varresult[[1]]), Sigma=vcov(V.7$varresult[[1]]), Terms=c(2,
 wald.test(b=coef(V.7$varresult[[2]]), Sigma=vcov(V.7$varresult[[2]]), Terms= c(1,3,5,7,9,11))
 
 # Using the toda.yamamoto function ####
-
-# load the function
-devtools::source_url("https://raw.githubusercontent.com/nicolarighetti/Toda-Yamamoto-Causality-Test/main/todayamamoto.r?raw=TRUE")
-
 toda.yamamoto.test(V.6)
 ```
 
