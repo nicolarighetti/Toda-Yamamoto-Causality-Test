@@ -56,6 +56,7 @@ toda.yamamoto.test(V.6)
 
 
 **References**
+
 Granger, C. W. (1969). Investigating causal relations by econometric models and cross-spectral methods. *Econometrica: journal of the Econometric Society*, 424-438.
 
 He, Z., & Maekawa, K. (2001). On spurious Granger causality. Economics Letters, 73(3), 307-313.
