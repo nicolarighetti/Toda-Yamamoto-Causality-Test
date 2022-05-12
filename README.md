@@ -15,18 +15,18 @@ An R code to run a bivariate version of the test was published by [Christoph Pfe
 >Now, here are the basic steps for the T-Y procedure:
 
 >  1. Test each of the time-series to determine their order of integration. Ideally, this should involve using a test (such as the ADF test) for which the null hypothesis is non-stationarity; as well as a test (such as the KPSS test) for which the null is stationarity. It's good to have a cross-check.
-  2. Let the **maximum** order of integration for the group of time-series be m. So, if there are two time-series and one is found to be I(1) and the other is I(2), then m = 2. If one is I(0) and the other is I(1), then m = 1, etc.
-  3. Set up a VAR model in the **levels** of the data, regardless of the orders of integration of the various time-series. Most importantly, you **must not** difference the data, no matter what you found at Step 1.
-  4. Determine the appropriate maximum lag length for the variables in the VAR, say p, using the usual methods. Specifically, base the choice of p on the usual information criteria, such as AIC, SIC.
-  5. Make sure that the VAR is well-specified. For example, ensure that there is no serial correlation in the residuals. If need be, increase p until any autocorrelation issues are resolved.
-  6. If two or more of the time-series have the same order of integration, at Step 1, then test to see if they are cointegrated, preferably using Johansen's methodology (based on your VAR) for a reliable result.
-  7. No matter what you conclude about cointegration at Step 6, this is not going to affect what follows. It just provides a possible cross-check on the validity of your results at the very end of the analysis.
-  8. Now take the preferred VAR model and add in m additional lags of each of the variables into each of the equations.
-  9. Test for Granger non-causality as follows. For expository purposes, suppose that the VAR has two equations, one for X and one for Y. Test the hypothesis that the coefficients of (only) the first p lagged values of X are zero in the Y equation, using a standard Wald test. Then do the same thing for the coefficients of the lagged values of Y in the X equation.
-  10. It's **essential** that you **don't** include the coefficients for the 'extra' m lags when you perform the Wald tests. They are there just to fix up the asymptotics.
-  11. The Wald test statistics will be asymptotically chi-square distributed with p d.o.f., under the null.
-  12. Rejection of the null implies a rejection of Granger non-causality. That is, a rejection supports the presence of Granger causality.
-  13. Finally, look back at what you concluded in Step 6 about cointegration
+>  2. Let the **maximum** order of integration for the group of time-series be m. So, if there are two time-series and one is found to be I(1) and the other is I(2), then m = 2. If one is I(0) and the other is I(1), then m = 1, etc.
+>  3. Set up a VAR model in the **levels** of the data, regardless of the orders of integration of the various time-series. Most importantly, you **must not** difference the data, no matter what you found at Step 1.
+> 4. Determine the appropriate maximum lag length for the variables in the VAR, say p, using the usual methods. Specifically, base the choice of p on the usual information criteria, such as AIC, SIC.
+>  5. Make sure that the VAR is well-specified. For example, ensure that there is no serial correlation in the residuals. If need be, increase p until any autocorrelation issues are resolved.
+>  6. If two or more of the time-series have the same order of integration, at Step 1, then test to see if they are cointegrated, preferably using Johansen's methodology (based on your VAR) for a reliable result.
+>  7. No matter what you conclude about cointegration at Step 6, this is not going to affect what follows. It just provides a possible cross-check on the validity of your results at the very end of the analysis.
+>  8. Now take the preferred VAR model and add in m additional lags of each of the variables into each of the equations.
+>  9. Test for Granger non-causality as follows. For expository purposes, suppose that the VAR has two equations, one for X and one for Y. Test the hypothesis that the coefficients of (only) the first p lagged values of X are zero in the Y equation, using a standard Wald test. Then do the same thing for the coefficients of the lagged values of Y in the X equation.
+>  10. It's **essential** that you **don't** include the coefficients for the 'extra' m lags when you perform the Wald tests. They are there just to fix up the asymptotics.
+>  11. The Wald test statistics will be asymptotically chi-square distributed with p d.o.f., under the null.
+>  12. Rejection of the null implies a rejection of Granger non-causality. That is, a rejection supports the presence of Granger causality.
+>  13. Finally, look back at what you concluded in Step 6 about cointegration
 
 As summarized by Pfeiffer, the Toda-Yamamoto causality test procedure is based on the following steps: 
 
