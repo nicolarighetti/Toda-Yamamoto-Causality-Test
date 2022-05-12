@@ -44,7 +44,7 @@ toda.yamamoto <- function(var.model, test = c("kpss","adf","pp")) {
           cause = ty.varnames[j], 
           effect = ty.varnames[k], 
           chisq = as.numeric(wald.res$result$chi2[1]),
-          pvalue = wald.res$result$chi2[3])
+          pvalue = as.numeric(wald.res$result$chi2[3]))
           )
       }
     }
