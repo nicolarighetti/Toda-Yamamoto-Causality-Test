@@ -1,6 +1,6 @@
 # Toda-Yamamoto-Causality-Test
 
-This is an R function to perform the Toda-Yamamoto causality test ([Toda & Yamamoto, 1995](https://www.sciencedirect.com/science/article/abs/pii/0304407694016168)), a test of the null hypothesis than one time series does not "Granger-cause" another one. A time series is considered a Granger cause of another time series if the former predicts the latter significantly better than the latter predicts itself (Granger, 1969). 
+This is an R function to perform the Toda-Yamamoto causality test ([Toda & Yamamoto, 1995](https://www.sciencedirect.com/science/article/abs/pii/0304407694016168)), a test of the null hypothesis than one time series does not "Granger-cause" another one. A time series X is considered a Granger cause of another time series Y if past values of X and Y predicts Y significantly better than past values of Y alone (Granger, 1969). 
 
 The concept and method of Granger causality was originally developed for stationary time series. The Toda-Yamamoto approach overcomes some issues that can arise when testing non-stationary series, a condition leading to the risk of spurious causality ([He, Maekawa, 2001](https://www.sciencedirect.com/science/article/pii/S0165176501004980)). Toda and Yamamoto propose that their method:
 
