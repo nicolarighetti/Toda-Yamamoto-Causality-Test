@@ -53,8 +53,6 @@ wald.test(b=coef(V.7$varresult[[2]]), Sigma=vcov(V.7$varresult[[2]]), Terms= c(1
 toda.yamamoto(V.6)
 ```
 
-For any comments or observation, you can [drop me a message](mailto:nicola.righetti@univie.ac.at?subject=[GitHub]%20Toda-Yamamoto%20)
-
 **References**
 
 Granger, C. W. (1969). Investigating causal relations by econometric models and cross-spectral methods. *Econometrica: journal of the Econometric Society*, 424-438.
